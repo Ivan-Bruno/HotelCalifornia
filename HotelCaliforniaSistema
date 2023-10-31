@@ -1,0 +1,34 @@
+package HotelCaliforniaSistema;
+
+import java.time.LocalTime;
+
+public class HotelCaliforniaSistema {
+    RefeicaoControler refeicaoControler;
+    HotelCaliforniaSistema(){
+        this.refeicaoControler = new RefeicaoControler();
+    }
+    
+    /*Disponibiliza refeição*/
+    public String disponibilizarRefeicao(String idAutenticacao, String tipoRefeicao, String titulo
+            , LocalTime horarioInicio,LocalTime horarioFinal,double valor,boolean disponivel){
+        this.refeicaoControler.disponibilizarRefeicao(idAutenticacao, tipoRefeicao, titulo, horarioInicio, horarioFinal, valor, disponivel);
+        return null;
+    }
+    
+    /*Altera a refeição*/
+    public String alterarRefeicao(long idRefeicao, LocalTime horarioInicio, LocalTime horarioFinal, double valor, boolean disponivel){
+        this.refeicaoControler.alterarRefeicao(idRefeicao, horarioInicio, horarioFinal, valor, disponivel);
+        return null;
+    }
+    
+    /*Exibe a refeição do momento*/
+    public String exibirRefeicao(long idRefeicao){
+        return this.refeicaoControler.exibirRefeicao(idRefeicao);
+    }
+    
+    /*Retorna lista de refeições*/
+    public String[] listaRefeicoes(){
+        return this.refeicaoControler.listarRefeicoes();
+    }
+
+}
