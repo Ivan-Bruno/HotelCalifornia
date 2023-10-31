@@ -1,0 +1,9 @@
+package HotelCaliforniaSistema;
+
+import java.time.LocalTime;
+
+public interface RefeicaoInterface {
+	String alterarRefeicao(LocalTime horarioInicio, LocalTime horarioFinal, double valorPorPessoa, boolean disponivel);
+	
+	String toString();
+}
