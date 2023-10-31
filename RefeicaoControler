@@ -1,0 +1,41 @@
+package HotelCaliforniaSistema;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.time.LocalTime;
+
+/*Métodos necessários*/
+
+public class RefeicaoControler {
+	Map<Long, Refeicao> mapaRefeicao;
+	 RefeicaoControler(){
+	        this.mapaRefeicao = new HashMap<>();
+	    }
+	    public String disponibilizarRefeicao(String idAutenticacao, String tipoRefeicao, String titulo
+	            , LocalTime horarioInicio, LocalTime horarioFinal, double valor, boolean disponivel){
+	        if(!idAutenticacao.substring(0, idAutenticacao.length() - 2).equals("GER") && !idAutenticacao.substring(0, idAutenticacao.length() - 2).equals("FUN")){
+	            throw new IllegalArgumentException();
+	        }
+	        if(horarioInicio > horarioFinal){
+	            throw new IllegalArgumentException();
+	        }
+	        Refeicao refeicao = new Refeicao(tipoRefeicao, titulo, horarioInicio, horarioFinal, valor, disponivel);
+	        return null;
+	    }
+	    public String alterarRefeicao(long idRefeicao, LocalTime horarioInicio, LocalTime horarioFinal, double valor, boolean disponivel){
+	        mapaRefeicao.get(idRefeicao).alterarRefeicao(horarioInicio,horarioFinal,valor,disponivel);
+	        return null;
+	    }
+	    public String exibirRefeicao(long idRefeicao){
+	        return "["+idRefeicao+"] "+ mapaRefeicao.get(idRefeicao).toString();
+	    }
+	    public String[] listarRefeicoes(){
+	        String[] listaRefeicao = new String[mapaRefeicao.size()];
+	        int pos = 0;
+	        for(long idRefeicao:mapaRefeicao.keySet()){
+	            listaRefeicao[pos] = "["+idRefeicao+"] "+mapaRefeicao.get(idRefeicao).toString();
+	            pos++;
+	        }
+	        return listaRefeicao;
+	    }
+}
