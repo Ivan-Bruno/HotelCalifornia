@@ -1,0 +1,38 @@
+package HotelCaliforniaSistema;
+
+import java.time.LocalTime;
+
+/* Classe responsável por criar a refeição e seus atributos*/
+
+public class Refeicao {
+	
+	private String tipoRefeicao;
+    private String titulo;
+    private LocalTime horarioIncial;
+    private LocalTime horarioFinal;
+    private double valor;
+    private boolean disponivel;
+    
+    Refeicao(String tipoRefeicao, String titulo, LocalTime horarioInicio, LocalTime horarioFinal, double valor, boolean disponivel){
+        this.tipoRefeicao = tipoRefeicao;
+        this.titulo = titulo;
+        this.horarioIncial = horarioInicio;
+        this.horarioFinal = horarioFinal;
+        this.valor = valor;
+        this.disponivel = disponivel;
+    }
+    
+    public String alterarRefeicao(LocalTime horarioInicio, LocalTime horarioFinal, double valorPorPessoa, boolean disponivel) {
+        this.horarioIncial = horarioInicio;
+        this.horarioFinal = horarioFinal;
+        this.valor = valorPorPessoa;
+        this.disponivel = disponivel;
+        return null;
+    }
+    
+    @Override
+    public String toString(){
+        return tipoRefeicao + ": " + titulo + " (" + horarioIncial + " as " + horarioFinal + "). Valor por pessoa: R$" + ". "+ disponivel;
+
+    }
+}
