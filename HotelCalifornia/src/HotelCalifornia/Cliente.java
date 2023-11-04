@@ -1,21 +1,8 @@
 package HotelCalifornia;
 
-public class Cliente implements Usuario{
-	String id;
-	String nome;
-	String tipoUsuario;
-	long documento;
+public class Cliente extends Usuario{
 	
-	public Cliente(String idAutenticacao, String nome, String tipoUsuario, long documento){
-		this.id = idAutenticacao;
-		this.nome = nome;
-		this.tipoUsuario = tipoUsuario;
-		this.documento = documento;
-	}
-
-	@Override
-	public String cadastraUsuario(String idAutenticacao, String nome, String tipoUsuario, long documento) {
-		return "CLIENTES NÃO PODEM CADASTRAR USUÁRIOS";
-	}
-
+	 public Cliente(String id, String nome, Long documento) {
+	        super(id, nome, "CLI", documento);
+	    }
 }
